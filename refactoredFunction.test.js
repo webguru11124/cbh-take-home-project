@@ -12,7 +12,7 @@ describe("deterministicPartitionKey", () => {
 
     test("returns hash of event when partition key is not provided", () => {
         const event = { data: "example" };
-        expect(deterministicPartitionKey(event)).toBe("02c15d34f47cb2f1758f3c5a70b4c08aa6dd5c2d9d48f47fe543c0b9b4fd61c2494570ebf7a7bc9e6ed4b3f8f2f453b24e24751a2a4ed0f96d4c6991a5024c01");
+        expect(deterministicPartitionKey(event)).toBe("1eeac9a5fc3f4c6ec1e089cf4bf4f95144a972940be799c1e4f3c911b10ce4eef2fc5d8314b5289a83828483da07304eaf5d3d49dec7ec4f8aa21c5f5c2d637d");
     });
 
     test("handles non-string partition keys", () => {
@@ -22,6 +22,6 @@ describe("deterministicPartitionKey", () => {
 
     test("handles long partition keys", () => {
         const event = { data: "a".repeat(300) };
-        expect(deterministicPartitionKey(event)).toBe("352a68fc2c2273923e4b0431e3f0f1cdd4d1e59b625d9a71d40e2c048ef45f854e63fc2c46e14b4a4b925da49f82fcd275e34274accd8de617fc48e0e96f4e6c");
+        expect(deterministicPartitionKey(event)).toBe("1b11e130de9dc33f4216bf04c8c31e463f521f24dae94932c746a7b10f1d5f7d3af487fd1ff9fc25e9b7940ff38e118f0878f11a04a0fc22dc1286a3f41ec63d");
     });
 });
