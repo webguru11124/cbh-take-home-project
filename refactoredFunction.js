@@ -10,9 +10,11 @@ exports.deterministicPartitionKey = (event) => {
         candidate = JSON.stringify(candidate);
     }
 
-    if (candidate && candidate.length > MAX_PARTITION_KEY_LENGTH) {
+    candidate = candidate || TRIVIAL_PARTITION_KEY;
+
+    if (candidate.length > MAX_PARTITION_KEY_LENGTH) {
         candidate = crypto.createHash("sha3-512").update(candidate).digest("hex");
     }
 
-    return candidate || TRIVIAL_PARTITION_KEY;
+    return candidate;
 };
