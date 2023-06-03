@@ -1,3 +1,3 @@
 const {deterministicPartitionKey} = require("./refactoredFunction");
 
-console.log(deterministicPartitionKey());
+console.log(deterministicPartitionKey(null));
